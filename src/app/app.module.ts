@@ -9,7 +9,6 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { appReducer } from './app.reducer';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
-import { APP_BASE_HREF } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -27,7 +26,7 @@ import { APP_BASE_HREF } from '@angular/common';
       logOnly: environment.production,
     })
   ],
-  providers: [{provide: APP_BASE_HREF, useValue : '/' }],  
+  providers: [],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
