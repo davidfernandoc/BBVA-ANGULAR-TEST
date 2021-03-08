@@ -1,0 +1,41 @@
+<form (ngSubmit)="onSubmit($event)">
+  <!-- FIELD NAME -->
+  <mat-form-field appearance="fill">
+      <mat-label>Name:</mat-label>
+      <input matInput placeholder="Name" [formControl]="txtInput" (keydown)="keydown($event)">
+  </mat-form-field>  
+
+  <!-- FIELD DATE -->
+  <mat-form-field appearance="fill">
+      <mat-label>Date:</mat-label>
+      <input matInput [matDatepicker]="picker" [max] = "pickerConfig.maxDate" [min] = "pickerConfig.minDate"
+      readonly="true" (click)="picker.open()" [formControl]="datePicker">
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker ></mat-datepicker>      
+  </mat-form-field>
+
+  <!-- FIELD BIRTHDAY MONTH -->
+  <mat-form-field appearance="fill">
+      <mat-label>Birthday month</mat-label>
+      <mat-select [formControl]="selectBirthMonth">
+        <mat-option *ngFor="let month of months" [value]="month.viewValue">
+          {{month.viewValue}}
+        </mat-option>
+      </mat-select>
+  </mat-form-field>
+
+  <!-- FIELD BUTTON ADD-->
+  <button mat-raised-button type="submit" name="add">ADD</button>   
+
+  <!-- FIELD BUTTON FILTER-->
+  <button mat-raised-button type="submit" name="filter">FILTER</button>   
+
+  <!-- FIELD BUTTON CLEAN-->
+  <button mat-raised-button type="submit" name="clean">ALL</button>   
+
+  <!-- FIELD FORMATOS FECHAS -->
+  <div class = "date-visualizer">
+    <span class="viewFormat">Milliseconds: {{selectedDate.milliseconds}}</span>
+    <span class="viewFormat">Formated date: {{selectedDate.formated}}</span>
+</div>
+</form>

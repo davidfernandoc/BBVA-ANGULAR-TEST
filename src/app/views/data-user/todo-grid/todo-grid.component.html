@@ -1,0 +1,13 @@
+<!-- GRID -->
+<div appearance="fill">
+    <table mat-table [dataSource]='todos | filtroTodo:filtroActual' class="mat-elevation-z8">
+        <ng-container *ngFor = "let columnName of gridMockColumns">
+            <ng-container [matColumnDef]="columnName">
+                <th mat-header-cell *matHeaderCellDef> {{columnName | uppercase }} </th>
+                <td mat-cell *matCellDef="let element"> {{element[columnName]}} </td>
+            </ng-container>
+        </ng-container>
+        <tr mat-header-row *matHeaderRowDef="gridMockColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: gridMockColumns;"></tr>        
+    </table>
+</div>    
